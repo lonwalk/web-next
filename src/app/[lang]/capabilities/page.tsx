@@ -1,17 +1,9 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import {
-  assemblyLines,
   assets,
-  auxiliaryEquipment,
-  electronicsCapabilities,
-  finishingCapabilities,
-  injectionMachines,
   isLang,
   Lang,
-  moldingCapabilities,
-  otherEquipment,
-  serviceFlow,
   t,
 } from '@/data/site';
 
@@ -23,18 +15,18 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
   return (
     <main>
       <section className="page-hero shell">
-        <span className="section-kicker">Capabilities</span>
+        <span className="section-kicker">{copy.labels.capabilities}</span>
         <h1>{copy.capabilities.title}</h1>
         <p>{copy.capabilities.subtitle}</p>
       </section>
 
       <section className="section shell two-column-grid equal-grid">
         <article className="content-card large-copy">
-          <span className="section-kicker">Flow</span>
+          <span className="section-kicker">{copy.labels.flow}</span>
           <h2>{copy.capabilities.processTitle}</h2>
           <p>{copy.capabilities.processLead}</p>
           <div className="process-flow" style={{ marginTop: 20 }}>
-            {serviceFlow.map((item) => (
+            {copy.capabilities.serviceFlow.map((item) => (
               <span key={item} className="flow-step">
                 {item}
               </span>
@@ -42,7 +34,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </div>
         </article>
         <article className="content-card large-copy">
-          <span className="section-kicker">Injection</span>
+          <span className="section-kicker">{copy.labels.injection}</span>
           <h2>{copy.capabilities.injectionTitle}</h2>
           <p>{copy.capabilities.injectionLead}</p>
         </article>
@@ -54,16 +46,17 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           <div className="table-wrap compact-table-wrap">
             <table>
               <thead>
-                <tr><th>Brand</th><th>Model</th><th>T</th><th>Qty</th><th>ID</th></tr>
+                <tr>
+                  {copy.capabilities.injectionHeaders.map((item) => (
+                    <th key={item}>{item}</th>
+                  ))}
+                </tr>
               </thead>
               <tbody>
-                {injectionMachines.map((item) => (
-                  <tr key={`${item.brand}-${item.model}-${item.serials}`}>
-                    <td>{item.brand}</td>
-                    <td>{item.model}</td>
-                    <td>{item.tonnage}</td>
-                    <td>{item.quantity}</td>
-                    <td>{item.serials}</td>
+                {copy.capabilities.injectionRows.map(([label, value]) => (
+                  <tr key={label}>
+                    <td>{label}</td>
+                    <td>{value}</td>
                   </tr>
                 ))}
               </tbody>
@@ -74,88 +67,53 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
 
       <section className="section shell table-grid">
         <div className="content-card table-card">
-          <h2>{copy.capabilities.auxiliaryTable}</h2>
+          <h2>{copy.capabilities.assemblyTable}</h2>
           <div className="table-wrap compact-table-wrap">
             <table>
               <thead>
-                <tr><th>Name</th><th>No.</th><th>Status</th><th>Vendor</th></tr>
+                <tr>
+                  {copy.capabilities.assemblyHeaders.map((item) => (
+                    <th key={item}>{item}</th>
+                  ))}
+                </tr>
               </thead>
               <tbody>
-                {auxiliaryEquipment.map((item) => (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>{item.code}</td>
-                    <td>{item.status}</td>
-                    <td>{item.vendor}</td>
+                {copy.capabilities.assemblyRows.map(([label, value]) => (
+                  <tr key={label}>
+                    <td>{label}</td>
+                    <td>{value}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </div>
-        <div className="content-card table-card">
-          <h2>{copy.capabilities.otherTable}</h2>
-          <div className="table-wrap compact-table-wrap">
-            <table>
-              <thead>
-                <tr><th>Name</th><th>Qty</th></tr>
-              </thead>
-              <tbody>
-                {otherEquipment.map((item) => (
-                  <tr key={item.name}>
-                    <td>{item.name}</td>
-                    <td>{item.qty}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <div className="image-card single-image-card">
+          <Image src={assets.assemblyLine} alt="" width={1546} height={1017} />
         </div>
       </section>
 
       <section className="section shell three-column-grid">
-        <article className="content-card compact-card">
-          <span className="section-kicker">Molding</span>
-          <h2>{copy.capabilities.moldingTitle}</h2>
-          <ul className="clean-list spaced-list">
-            {moldingCapabilities.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className="subsection-divider" />
-          <ul className="clean-list spaced-list">
-            {finishingCapabilities.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="content-card compact-card">
-          <span className="section-kicker">Electronics</span>
-          <h2>{copy.capabilities.electronicsTitle}</h2>
-          <p>{copy.capabilities.electronicsLead}</p>
-          <ul className="clean-list spaced-list" style={{ marginTop: 18 }}>
-            {electronicsCapabilities.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="content-card compact-card">
-          <span className="section-kicker">Assembly</span>
-          <h2>Assembly Lines</h2>
-          <ul className="clean-list spaced-list">
-            {assemblyLines.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
+        {copy.capabilities.groups.map((group) => (
+          <article key={group.title} className="content-card compact-card">
+            <span className="section-kicker">{group.kicker}</span>
+            <h2>{group.title}</h2>
+            {'body' in group ? <p>{group.body}</p> : null}
+            <ul className="clean-list spaced-list" style={{ marginTop: 'body' in group ? 18 : 0 }}>
+              {group.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </section>
 
       <section className="section shell two-image-strip">
         <div className="image-card single-image-card">
-          <Image src={assets.moldingFloor} alt="Injection molding workshop" width={1576} height={998} />
+          <Image src={assets.moldingFloor} alt="" width={1576} height={998} />
         </div>
         <div className="image-card single-image-card">
-          <Image src={assets.assemblyLine} alt="Assembly line" width={1546} height={1017} />
+          <Image src={assets.cleanroom} alt="" width={2631} height={1155} />
         </div>
       </section>
     </main>

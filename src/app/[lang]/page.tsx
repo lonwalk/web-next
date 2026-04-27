@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { assets, currentMarkets, isLang, Lang, majorClients, t } from '@/data/site';
+import { assets, isLang, Lang, t } from '@/data/site';
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -36,17 +36,17 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <article key={item.title} className="content-card compact-card">
             <span className="section-kicker">{item.title}</span>
             <p>{item.body}</p>
-          </article>
-        ))}
+        </article>
+      ))}
       </section>
 
       <section className="section shell two-column-grid equal-grid">
         <article className="content-card large-copy">
-          <span className="section-kicker">Clients</span>
+          <span className="section-kicker">{copy.labels.clients}</span>
           <h2>{copy.home.clientTitle}</h2>
           <p>{copy.home.clientLead}</p>
           <div className="logo-grid" style={{ marginTop: 18 }}>
-            {majorClients.map((item) => (
+            {copy.home.clientItems.map((item) => (
               <span key={item} className="logo-chip">
                 {item}
               </span>
@@ -54,11 +54,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
         </article>
         <article className="content-card large-copy">
-          <span className="section-kicker">Market</span>
+          <span className="section-kicker">{copy.labels.market}</span>
           <h2>{copy.home.marketTitle}</h2>
           <p>{copy.home.marketLead}</p>
           <ul className="clean-list spaced-list" style={{ marginTop: 18 }}>
-            {currentMarkets.map((item) => (
+            {copy.home.marketItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>

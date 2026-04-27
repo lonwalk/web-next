@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { assets, currentProducts, isLang, Lang, legacyProducts, t } from '@/data/site';
+import { assets, isLang, Lang, t } from '@/data/site';
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -10,14 +10,14 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
   return (
     <main>
       <section className="page-hero shell">
-        <span className="section-kicker">About</span>
+        <span className="section-kicker">{copy.labels.about}</span>
         <h1>{copy.about.title}</h1>
         <p>{copy.about.subtitle}</p>
       </section>
 
       <section className="section shell two-column-grid">
         <article className="content-card large-copy">
-          <span className="section-kicker">Positioning</span>
+          <span className="section-kicker">{copy.labels.positioning}</span>
           <h2>{copy.about.introTitle}</h2>
           <p>{copy.about.introBody}</p>
         </article>
@@ -26,27 +26,45 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         </div>
       </section>
 
+      <section className="section shell table-block">
+        <div className="content-card table-card">
+          <h2>{copy.about.factsTitle}</h2>
+          <div className="table-wrap compact-table-wrap">
+            <table>
+              <tbody>
+                {copy.about.facts.map(([label, value]) => (
+                  <tr key={label}>
+                    <th>{label}</th>
+                    <td>{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       <section className="section shell three-column-grid">
         <article className="content-card compact-card">
-          <span className="section-kicker">Legacy</span>
+          <span className="section-kicker">{copy.labels.market}</span>
           <h2>{copy.about.legacyTitle}</h2>
           <ul className="clean-list spaced-list">
-            {legacyProducts.map((item) => (
+            {copy.about.legacyItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </article>
         <article className="content-card compact-card">
-          <span className="section-kicker">Current</span>
+          <span className="section-kicker">{copy.labels.capabilities}</span>
           <h2>{copy.about.currentTitle}</h2>
           <ul className="clean-list spaced-list">
-            {currentProducts.map((item) => (
+            {copy.about.currentItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </article>
         <article className="content-card compact-card">
-          <span className="section-kicker">History</span>
+          <span className="section-kicker">{copy.labels.positioning}</span>
           <h2>{copy.about.historyTitle}</h2>
           <div className="timeline-list dense-timeline">
             {copy.about.history.map((item) => (
