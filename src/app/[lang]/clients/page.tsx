@@ -48,13 +48,16 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
         </article>
       </section>
 
-      <section className="section shell two-column-grid equal-grid">
+      <section className="section shell award-recognition-grid">
         <article className="content-card large-copy">
           <h2>{copy.clients.awardTitle}</h2>
           <p>{copy.clients.awardLead}</p>
         </article>
-        <div className="image-card single-image-card">
-          <Image src={assets.awards1} alt="朗华客户认可与奖项" width={741} height={480} />
+        <div className="image-card award-image-card">
+          <Image src={assets.awards1} alt={copy.media.clientAwards} width={741} height={480} />
+        </div>
+        <div className="image-card award-image-card">
+          <Image src={assets.awards3} alt={copy.media.clientAwards} width={690} height={462} />
         </div>
       </section>
 
@@ -63,7 +66,7 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
           <h2>{copy.clients.processTitle}</h2>
           <p>{copy.clients.processLead}</p>
           <div className="image-card diagram-card flow-diagram-card">
-            <Image src={assets.processFlow} alt="朗华客户服务流程图" width={1592} height={896} />
+            <Image src={assets.processFlow} alt={copy.media.processFlow} width={1592} height={896} />
           </div>
         </article>
       </section>

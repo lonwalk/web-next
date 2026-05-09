@@ -10,7 +10,6 @@ export default async function StrengthsPage({ params }: { params: Promise<{ lang
   return (
     <main>
       <section className="page-hero shell">
-        <span className="section-kicker">{copy.labels.strengths}</span>
         <h1>{copy.strengths.title}</h1>
         <p>{copy.strengths.subtitle}</p>
       </section>
@@ -18,7 +17,6 @@ export default async function StrengthsPage({ params }: { params: Promise<{ lang
       <section className="section shell three-column-grid">
         {copy.strengths.items.map((item) => (
           <article key={item.title} className="content-card compact-card">
-            <span className="section-kicker">{item.title}</span>
             <h2>{item.title}</h2>
             <p>{item.body}</p>
           </article>
@@ -27,8 +25,8 @@ export default async function StrengthsPage({ params }: { params: Promise<{ lang
 
       <section className="section shell single-image-section">
         <figure className="image-card figure-card single-image-card wide-figure-card">
-          <Image src={assets.solar} alt="光伏绿色制造" width={1672} height={941} />
-          <figcaption>光伏绿色制造</figcaption>
+          <Image src={assets.solar} alt={copy.media.solar} width={1672} height={941} />
+          <figcaption>{copy.media.solar}</figcaption>
         </figure>
       </section>
     </main>

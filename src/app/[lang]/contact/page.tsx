@@ -10,14 +10,12 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   return (
     <main>
       <section className="page-hero shell">
-        <span className="section-kicker">{copy.labels.contact}</span>
         <h1>{copy.contact.title}</h1>
         <p>{copy.contact.subtitle}</p>
       </section>
 
       <section className="section shell two-column-grid equal-grid">
         <article className="content-card table-card">
-          <span className="section-kicker">{copy.labels.contact}</span>
           <h2>{copy.contact.infoTitle}</h2>
           <div className="table-wrap compact-table-wrap">
             <table>
@@ -33,7 +31,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
           </div>
         </article>
         <div className="image-card single-image-card">
-          <Image src={assets.campus} alt="朗华厂区" width={2726} height={1158} />
+          <Image src={assets.campus} alt={copy.media.campus} width={2726} height={1158} />
         </div>
       </section>
     </main>

@@ -23,10 +23,9 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
             ))}
           </ul>
         </article>
-        <figure className="image-card figure-card single-image-card">
-          <Image src={assets.assemblyWide} alt="产品设计与生产导入现场" width={1000} height={574} />
-          <figcaption>产品设计与生产导入</figcaption>
-        </figure>
+        <div className="image-card placeholder-card single-image-card">
+          <span>{copy.media.designPlaceholder}</span>
+        </div>
       </section>
 
       <section className="section shell text-media-grid">
@@ -47,8 +46,8 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </div>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.injection} alt="注塑成型设备" width={1060} height={534} />
-          <figcaption>注塑成型设备</figcaption>
+          <Image src={assets.injection} alt={copy.media.injection} width={1060} height={534} />
+          <figcaption>{copy.media.injection}</figcaption>
         </figure>
       </section>
 
@@ -61,10 +60,9 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
             ))}
           </ul>
         </article>
-        <figure className="image-card figure-card single-image-card">
-          <Image src={assets.assembly} alt="自动化组装生产线" width={1000} height={551} />
-          <figcaption>自动化组装生产线</figcaption>
-        </figure>
+        <div className="image-card placeholder-card single-image-card">
+          <span>{copy.media.automationPlaceholder}</span>
+        </div>
       </section>
 
       <section className="section shell text-media-grid">
@@ -78,8 +76,8 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.assemblyWide} alt="连线生产" width={1000} height={574} />
-          <figcaption>连线生产</figcaption>
+          <Image src={assets.lineProduction} alt={copy.media.lineProduction} width={1767} height={890} />
+          <figcaption>{copy.media.lineProduction}</figcaption>
         </figure>
       </section>
 
@@ -101,8 +99,8 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </div>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.assembly} alt="装配流水线" width={1000} height={551} />
-          <figcaption>装配流水线</figcaption>
+          <Image src={assets.assembly} alt={copy.media.assemblyLine} width={1000} height={551} />
+          <figcaption>{copy.media.assemblyLine}</figcaption>
         </figure>
       </section>
 
@@ -116,8 +114,8 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.uvPrinting} alt="UV打印设备" width={1070} height={669} />
-          <figcaption>UV打印设备</figcaption>
+          <Image src={assets.uvPrinting} alt={copy.media.uvPrinting} width={1070} height={669} />
+          <figcaption>{copy.media.uvPrinting}</figcaption>
         </figure>
       </section>
 
@@ -131,8 +129,8 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.cleanroom} alt="洁净车间" width={2300} height={840} />
-          <figcaption>洁净车间</figcaption>
+          <Image src={assets.cleanroom} alt={copy.media.cleanroom} width={2300} height={840} />
+          <figcaption>{copy.media.cleanroom}</figcaption>
         </figure>
       </section>
 
@@ -153,8 +151,8 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </div>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.erpSystem} alt="ERP管理系统" width={1600} height={1923} />
-          <figcaption>ERP管理系统</figcaption>
+          <Image src={assets.erpSystem} alt={copy.media.erp} width={1600} height={1923} />
+          <figcaption>{copy.media.erp}</figcaption>
         </figure>
       </section>
     </main>

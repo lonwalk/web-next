@@ -13,7 +13,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
       <section className="hero-section shell landing-hero">
         <div className="hero-card landing-hero-card">
           <div className="hero-media hero-media-cover landing-hero-media">
-            <Image src={assets.campus} alt="朗华厂区" width={2726} height={1158} priority />
+            <Image src={assets.campus} alt={copy.media.campus} width={2726} height={1158} priority />
           </div>
           <div className="landing-hero-panel">
             <h1>{copy.companyName}</h1>

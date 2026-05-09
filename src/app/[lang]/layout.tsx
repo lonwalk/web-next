@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { isLang, Lang, t } from '@/data/site';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import '../globals.css';
 
 export function generateStaticParams() {
   return [{ lang: 'zh' }, { lang: 'en' }, { lang: 'ja' }];
@@ -26,12 +27,15 @@ export default async function LangLayout({ children, params }: Readonly<{ childr
   if (!isLang(lang)) {
     notFound();
   }
+  const copy = t(lang as Lang);
 
   return (
-    <>
+    <html lang={copy.htmlLang} data-scroll-behavior="smooth">
+      <body>
       <SiteHeader lang={lang as Lang} />
       {children}
       <SiteFooter lang={lang as Lang} />
-    </>
+      </body>
+    </html>
   );
 }
