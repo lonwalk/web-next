@@ -25,6 +25,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   min-height: 100vh;
   background: linear-gradient(180deg, #fbfbfc 0%, #f2f4f7 100%);
   color: var(--text);
@@ -415,15 +416,45 @@ label span {
   padding-bottom: 0;
 }
 
+.rotated-certificate-card {
+  display: grid;
+  align-content: center;
+}
+
+.rotated-certificate-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 531 / 363;
+}
+
+.rotated-certificate-media img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% * 363 / 531);
+  height: auto;
+  max-width: none;
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center;
+}
+
 .flow-diagram-card {
   margin-top: 20px;
   min-height: 0;
-  padding: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  box-shadow: none;
+  overflow: hidden;
 }
 
 .flow-diagram-card img {
   width: 100%;
   height: auto;
+  border-radius: inherit;
+  object-fit: contain;
 }
 
 .client-logo-grid {
@@ -791,11 +822,11 @@ th {
 
 @media (max-width: 720px) {
   .shell {
-    width: min(100vw - 24px, 1160px);
+    width: min(calc(100vw - 24px), 1160px);
   }
 
   .landing-hero {
-    width: min(100vw - 24px, 1160px);
+    width: min(calc(100vw - 24px), 1160px);
   }
 
   .landing-hero-card {

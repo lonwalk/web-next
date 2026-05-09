@@ -85,8 +85,10 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
             <Image src={assets.iso9001} alt={copy.media.iso9001} width={378} height={532} />
             <figcaption>{copy.media.iso9001}</figcaption>
           </figure>
-          <figure className="image-card certificate-card figure-card">
-            <Image src={assets.icti} alt={copy.media.icti} width={363} height={531} />
+          <figure className="image-card certificate-card figure-card rotated-certificate-card">
+            <span className="rotated-certificate-media">
+              <Image src={assets.icti} alt={copy.media.icti} width={363} height={531} />
+            </span>
             <figcaption>{copy.media.icti}</figcaption>
           </figure>
         </div>

@@ -65,10 +65,10 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
         <article className="content-card compact-card">
           <h2>{copy.clients.processTitle}</h2>
           <p>{copy.clients.processLead}</p>
-          <div className="image-card diagram-card flow-diagram-card">
-            <Image src={assets.processFlow} alt={copy.media.processFlow} width={1592} height={896} />
-          </div>
         </article>
+        <div className="flow-diagram-card">
+          <Image src={assets.processFlow} alt={copy.media.processFlow} width={1592} height={896} />
+        </div>
       </section>
     </main>
   );
