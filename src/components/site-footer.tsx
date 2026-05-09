@@ -15,7 +15,6 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <p className="footer-label">{copy.footer.contact}</p>
           <p>{copy.common.address}</p>
           <p>{copy.common.phone}</p>
-          <p>{copy.common.fax}</p>
           <p>{copy.common.mobile}</p>
         </div>
         <div>

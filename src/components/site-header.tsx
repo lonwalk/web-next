@@ -17,11 +17,15 @@ export function SiteHeader({ lang }: { lang: Lang }) {
           <Image src={assets.logo} alt="Lonwalk logo" width={873} height={105} className="brand-logo" priority />
         </Link>
         <nav className="main-nav" aria-label="Primary navigation">
-          {copy.nav.map((item) => (
-            <Link key={item.href || 'home'} href={`/${lang}${item.href}`}>
+          {copy.nav.map((item) => {
+            const isActive = currentPath === item.href || (!currentPath && item.href === '/about');
+
+            return (
+            <Link key={item.href} href={`/${lang}${item.href}`} className={isActive ? 'is-active' : ''}>
               {item.label}
             </Link>
-          ))}
+            );
+          })}
         </nav>
         <div className="language-picker" aria-label={copy.common.language}>
           {languages.map((item) => (

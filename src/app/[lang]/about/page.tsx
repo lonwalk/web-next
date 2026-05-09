@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { assets, isLang, Lang, t } from '@/data/site';
 
@@ -9,21 +10,36 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
 
   return (
     <main>
-      <section className="page-hero shell">
-        <span className="section-kicker">{copy.labels.about}</span>
-        <h1>{copy.about.title}</h1>
-        <p>{copy.about.subtitle}</p>
+      <section className="hero-section shell landing-hero">
+        <div className="hero-card landing-hero-card">
+          <div className="hero-media hero-media-cover landing-hero-media">
+            <Image src={assets.campus} alt="朗华厂区" width={2726} height={1158} priority />
+          </div>
+          <div className="landing-hero-panel">
+            <h1>{copy.companyName}</h1>
+            <p className="company-name-en">{copy.companyNameEn}</p>
+            <p className="hero-intro">{copy.about.subtitle}</p>
+            <div className="landing-hero-actions">
+              <Link href={`/${lang}/capabilities`} className="button-primary">
+                {copy.common.capabilities}
+              </Link>
+              <Link href={`/${lang}/contact`} className="button-secondary">
+                {copy.common.contact}
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="section shell two-column-grid">
+      <section className="section shell two-column-grid equal-grid">
         <article className="content-card large-copy">
-          <span className="section-kicker">{copy.labels.positioning}</span>
           <h2>{copy.about.introTitle}</h2>
           <p>{copy.about.introBody}</p>
         </article>
-        <div className="image-card tall-image">
-          <Image src={assets.detailFactory} alt="Lonwalk facility" width={4288} height={2848} />
-        </div>
+        <article className="content-card large-copy">
+          <h2>{copy.about.positioningTitle}</h2>
+          <p>{copy.about.positioningBody}</p>
+        </article>
       </section>
 
       <section className="section shell table-block">
@@ -44,43 +60,44 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         </div>
       </section>
 
-      <section className="section shell three-column-grid">
+      <section className="section shell two-column-grid equal-grid">
         <article className="content-card compact-card">
-          <span className="section-kicker">{copy.labels.market}</span>
-          <h2>{copy.about.legacyTitle}</h2>
+          <h2>{copy.about.developmentTitle}</h2>
           <ul className="clean-list spaced-list">
-            {copy.about.legacyItems.map((item) => (
+            {copy.about.developmentItems.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </article>
         <article className="content-card compact-card">
-          <span className="section-kicker">{copy.labels.capabilities}</span>
-          <h2>{copy.about.currentTitle}</h2>
-          <ul className="clean-list spaced-list">
-            {copy.about.currentItems.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="content-card compact-card">
-          <span className="section-kicker">{copy.labels.positioning}</span>
-          <h2>{copy.about.historyTitle}</h2>
-          <div className="timeline-list dense-timeline">
-            {copy.about.history.map((item) => (
-              <article key={item.year} className="timeline-item">
-                <strong>{item.year}</strong>
-                <p>{item.text}</p>
-              </article>
+          <h2>{copy.about.capabilityTitle}</h2>
+          <div className="placeholder-grid">
+            {copy.about.capabilityItems.map((item) => (
+              <div key={item} className="placeholder-tile">
+                <span>{item}</span>
+              </div>
             ))}
           </div>
         </article>
       </section>
 
       <section className="section shell single-image-section">
-        <div className="image-card single-image-card">
-          <Image src={assets.team} alt="Lonwalk team" width={3082} height={1167} />
-        </div>
+        <article className="content-card compact-card">
+          <h2>{copy.about.serviceFeatureTitle}</h2>
+          <div className="feature-grid">
+            {copy.about.serviceFeatures.map((item) => (
+              <article key={item.title} className="feature-item">
+                <div className="placeholder-frame">
+                  <span>照片预留</span>
+                </div>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </article>
       </section>
     </main>
   );

@@ -86,6 +86,7 @@ button {
 
 .main-nav a,
 .language-picker a {
+  position: relative;
   padding: 9px 12px;
   border-radius: 999px;
   color: var(--muted);
@@ -94,10 +95,15 @@ button {
 }
 
 .main-nav a:hover,
+.main-nav a.is-active,
 .language-picker a:hover,
 .language-picker a.is-active {
   background: rgba(20, 22, 27, 0.06);
   color: var(--brand);
+}
+
+.main-nav a.is-active {
+  background: rgba(20, 22, 27, 0.06);
 }
 
 .language-picker {
@@ -129,6 +135,100 @@ main {
 }
 
 .hero-card {
+  overflow: hidden;
+}
+
+.landing-hero {
+  width: min(1160px, calc(100vw - 40px));
+}
+
+.landing-hero-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  aspect-ratio: 2726 / 1158;
+  min-height: 0;
+  border-radius: var(--radius-xl);
+  background: #d9e7f4;
+}
+
+.landing-hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.landing-hero-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(3, 10, 22, 0.2), rgba(3, 10, 22, 0.05) 52%, rgba(3, 10, 22, 0.01)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(3, 10, 22, 0.14));
+}
+
+.landing-hero-panel {
+  position: relative;
+  z-index: 1;
+  width: min(720px, calc(100% - 40px));
+  margin: clamp(20px, 4vw, 44px);
+  padding: clamp(20px, 2.8vw, 30px);
+  border: 1px solid rgba(255, 255, 255, 0.46);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 24px 80px rgba(16, 22, 36, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.hero-logo {
+  width: min(260px, 70%);
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.landing-hero-card .landing-hero-panel h1 {
+  max-width: none;
+  font-size: clamp(1.8rem, 3.2vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.landing-hero-panel .hero-intro {
+  color: #3e4652;
+  max-width: 58ch;
+}
+
+.landing-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.company-name-en {
+  margin-top: 14px;
+  color: var(--brand);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.hero-metric-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.hero-metric-row span {
+  padding: 9px 11px;
+  border: 1px solid rgba(20, 22, 27, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--brand);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.image-card {
   overflow: hidden;
 }
 
@@ -232,11 +332,156 @@ label span {
   border-top: 1px solid var(--line);
 }
 
+.hero-media-cover {
+  border-top: 0;
+  min-height: clamp(260px, 38vw, 520px);
+}
+
 .hero-media img,
 .image-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.diagram-card,
+.certificate-card {
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: var(--surface-strong);
+}
+
+.diagram-card img,
+.certificate-card img {
+  object-fit: contain;
+}
+
+.flow-diagram-card {
+  margin-top: 20px;
+  min-height: 0;
+  padding: 10px;
+}
+
+.flow-diagram-card img {
+  width: 100%;
+  height: auto;
+}
+
+.client-logo-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.current-client-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.past-client-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.client-logo-card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 12px;
+  min-height: 190px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.client-logo-card img {
+  align-self: center;
+  width: 100%;
+  height: 128px;
+  object-fit: contain;
+}
+
+.client-logo-card p {
+  text-align: center;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.placeholder-grid,
+.feature-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.placeholder-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.placeholder-tile,
+.placeholder-frame {
+  display: grid;
+  place-items: center;
+  min-height: 96px;
+  border: 1px dashed rgba(20, 22, 27, 0.24);
+  border-radius: var(--radius-md);
+  background: rgba(20, 22, 27, 0.025);
+  color: var(--muted);
+}
+
+.placeholder-frame {
+  min-height: 120px;
+  font-size: 0.82rem;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.feature-item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 16px;
+  align-items: stretch;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.feature-item h3 {
+  margin-bottom: 6px;
+}
+
+.media-grid,
+.certificate-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.media-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.certificate-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.media-grid .image-card,
+.certificate-grid .image-card {
+  min-height: 220px;
+}
+
+.placeholder-card {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  background:
+    linear-gradient(135deg, rgba(31, 98, 211, 0.08), rgba(20, 22, 27, 0.03)),
+    var(--surface);
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .compact-card-grid {
@@ -266,6 +511,13 @@ label span {
 
 .single-image-card {
   min-height: 280px;
+}
+
+.text-media-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 16px;
+  align-items: stretch;
 }
 
 .clean-list {
@@ -413,8 +665,17 @@ th {
   .two-column-grid,
   .three-column-grid,
   .two-image-strip,
-  .footer-grid {
+  .text-media-grid,
+  .footer-grid,
+  .current-client-grid,
+  .past-client-grid,
+  .feature-grid,
+  .certificate-grid {
     grid-template-columns: 1fr;
+  }
+
+  .media-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .header-inner {
@@ -430,6 +691,21 @@ th {
 @media (max-width: 720px) {
   .shell {
     width: min(100vw - 24px, 1160px);
+  }
+
+  .landing-hero {
+    width: min(100vw - 24px, 1160px);
+  }
+
+  .landing-hero-card {
+    align-items: flex-end;
+    aspect-ratio: auto;
+    min-height: 560px;
+  }
+
+  .landing-hero-panel {
+    width: calc(100% - 24px);
+    margin: 12px;
   }
 
   .hero-copy,
@@ -449,5 +725,18 @@ th {
   .main-nav,
   .language-picker {
     flex-wrap: wrap;
+  }
+
+  .placeholder-grid,
+  .feature-item {
+    grid-template-columns: 1fr;
+  }
+
+  .client-logo-card img {
+    height: 112px;
+  }
+
+  .media-grid {
+    grid-template-columns: 1fr;
   }
 }

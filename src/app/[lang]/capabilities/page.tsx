@@ -1,11 +1,6 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import {
-  assets,
-  isLang,
-  Lang,
-  t,
-} from '@/data/site';
+import { assets, isLang, Lang, t } from '@/data/site';
 
 export default async function CapabilitiesPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -15,106 +10,134 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
   return (
     <main>
       <section className="page-hero shell">
-        <span className="section-kicker">{copy.labels.capabilities}</span>
         <h1>{copy.capabilities.title}</h1>
         <p>{copy.capabilities.subtitle}</p>
       </section>
 
-      <section className="section shell two-column-grid equal-grid">
-        <article className="content-card large-copy">
-          <span className="section-kicker">{copy.labels.flow}</span>
-          <h2>{copy.capabilities.processTitle}</h2>
-          <p>{copy.capabilities.processLead}</p>
-          <div className="process-flow" style={{ marginTop: 20 }}>
-            {copy.capabilities.serviceFlow.map((item) => (
-              <span key={item} className="flow-step">
-                {item}
-              </span>
+      <section className="section shell text-media-grid">
+        <article className="content-card compact-card">
+          <h2>{copy.capabilities.designTitle}</h2>
+          <ul className="clean-list spaced-list">
+            {copy.capabilities.designItems.map((item) => (
+              <li key={item}>{item}</li>
             ))}
-          </div>
+          </ul>
         </article>
-        <article className="content-card large-copy">
-          <span className="section-kicker">{copy.labels.injection}</span>
-          <h2>{copy.capabilities.injectionTitle}</h2>
-          <p>{copy.capabilities.injectionLead}</p>
-        </article>
+        <div className="image-card placeholder-card">
+          <span>产品设计与开发照片预留</span>
+        </div>
       </section>
 
-      <section className="section shell table-block">
-        <div className="content-card table-card">
-          <h2>{copy.capabilities.injectionTable}</h2>
+      <section className="section shell text-media-grid">
+        <article className="content-card table-card">
+          <h2>{copy.capabilities.injectionTitle}</h2>
+          <p>{copy.capabilities.injectionLead}</p>
           <div className="table-wrap compact-table-wrap">
             <table>
-              <thead>
-                <tr>
-                  {copy.capabilities.injectionHeaders.map((item) => (
-                    <th key={item}>{item}</th>
-                  ))}
-                </tr>
-              </thead>
               <tbody>
                 {copy.capabilities.injectionRows.map(([label, value]) => (
                   <tr key={label}>
-                    <td>{label}</td>
+                    <th>{label}</th>
                     <td>{value}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+        </article>
+        <div className="image-card single-image-card">
+          <Image src={assets.injection} alt="注塑成型设备" width={1060} height={534} />
         </div>
       </section>
 
-      <section className="section shell table-grid">
-        <div className="content-card table-card">
-          <h2>{copy.capabilities.assemblyTable}</h2>
+      <section className="section shell text-media-grid">
+        <article className="content-card compact-card">
+          <h2>{copy.capabilities.automationTitle}</h2>
+          <ul className="clean-list spaced-list">
+            {copy.capabilities.automationItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+        <div className="image-card placeholder-card">
+          <span>自动化设备照片预留</span>
+        </div>
+      </section>
+
+      <section className="section shell text-media-grid">
+        <article className="content-card compact-card">
+          <h2>{copy.capabilities.cellTitle}</h2>
+          <p>{copy.capabilities.cellLead}</p>
+          <ul className="clean-list spaced-list" style={{ marginTop: 18 }}>
+            {copy.capabilities.cellItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+        <div className="image-card placeholder-card">
+          <span>Cell Line生产照片预留</span>
+        </div>
+      </section>
+
+      <section className="section shell text-media-grid">
+        <article className="content-card table-card">
+          <h2>{copy.capabilities.assemblyTitle}</h2>
+          <p>{copy.capabilities.assemblyLead}</p>
           <div className="table-wrap compact-table-wrap">
             <table>
-              <thead>
-                <tr>
-                  {copy.capabilities.assemblyHeaders.map((item) => (
-                    <th key={item}>{item}</th>
-                  ))}
-                </tr>
-              </thead>
               <tbody>
                 {copy.capabilities.assemblyRows.map(([label, value]) => (
                   <tr key={label}>
-                    <td>{label}</td>
+                    <th>{label}</th>
                     <td>{value}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        </div>
+        </article>
         <div className="image-card single-image-card">
-          <Image src={assets.assemblyLine} alt="" width={1546} height={1017} />
+          <Image src={assets.assembly} alt="装配流水线" width={1000} height={551} />
         </div>
       </section>
 
-      <section className="section shell three-column-grid">
-        {copy.capabilities.groups.map((group) => (
-          <article key={group.title} className="content-card compact-card">
-            <span className="section-kicker">{group.kicker}</span>
-            <h2>{group.title}</h2>
-            {'body' in group ? <p>{group.body}</p> : null}
-            <ul className="clean-list spaced-list" style={{ marginTop: 'body' in group ? 18 : 0 }}>
-              {group.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
+      <section className="section shell text-media-grid">
+        <article className="content-card compact-card">
+          <h2>{copy.capabilities.printingTitle}</h2>
+          <ul className="clean-list spaced-list">
+            {copy.capabilities.printingItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+        <div className="image-card single-image-card">
+          <Image src={assets.uvPrinting} alt="UV打印设备" width={1070} height={669} />
+        </div>
       </section>
 
-      <section className="section shell two-image-strip">
-        <div className="image-card single-image-card">
-          <Image src={assets.moldingFloor} alt="" width={1576} height={998} />
+      <section className="section shell text-media-grid">
+        <article className="content-card compact-card">
+          <h2>{copy.capabilities.cleanroomTitle}</h2>
+          <ul className="clean-list spaced-list">
+            {copy.capabilities.cleanroomItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
+        <div className="image-card placeholder-card">
+          <span>洁净车间照片预留</span>
         </div>
-        <div className="image-card single-image-card">
-          <Image src={assets.cleanroom} alt="" width={2631} height={1155} />
-        </div>
+      </section>
+
+      <section className="section shell single-image-section">
+        <article className="content-card compact-card">
+          <h2>{copy.capabilities.erpTitle}</h2>
+          <ul className="clean-list spaced-list">
+            {copy.capabilities.erpItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </article>
       </section>
     </main>
   );
