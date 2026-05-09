@@ -81,24 +81,6 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         </article>
       </section>
 
-      <section className="section shell single-image-section">
-        <article className="content-card compact-card">
-          <h2>{copy.about.serviceFeatureTitle}</h2>
-          <div className="feature-grid">
-            {copy.about.serviceFeatures.map((item) => (
-              <article key={item.title} className="feature-item">
-                <div className="placeholder-frame">
-                  <span>照片预留</span>
-                </div>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </article>
-      </section>
     </main>
   );
 }

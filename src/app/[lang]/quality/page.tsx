@@ -14,7 +14,7 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
         <p>{copy.quality.subtitle}</p>
       </section>
 
-      <section className="section shell single-image-section">
+      <section className="section shell two-column-grid equal-grid">
         <article className="content-card large-copy">
           <h2>{copy.quality.policyTitle}</h2>
           <p>{copy.quality.policyLead}</p>
@@ -24,9 +24,6 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
             ))}
           </div>
         </article>
-      </section>
-
-      <section className="section shell single-image-section">
         <article className="content-card compact-card">
           <h2>{copy.quality.systemTitle}</h2>
           <ul className="clean-list spaced-list">
@@ -47,21 +44,26 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
           </ul>
         </article>
         <div className="media-grid">
-          <div className="image-card single-image-card">
+          <figure className="image-card figure-card single-image-card">
             <Image src={assets.twoDimensional} alt="二次元检测设备" width={831} height={543} />
-          </div>
-          <div className="image-card single-image-card">
+            <figcaption>二次元检测设备</figcaption>
+          </figure>
+          <figure className="image-card figure-card single-image-card">
             <Image src={assets.rohsSea1000s} alt="精工SEA1000S X射线荧光分光器" width={830} height={544} />
-          </div>
-          <div className="image-card single-image-card">
+            <figcaption>精工SEA1000S X射线荧光分光器</figcaption>
+          </figure>
+          <figure className="image-card figure-card single-image-card">
             <Image src={assets.temperatureHumidity} alt="恒温恒湿炉" width={689} height={789} />
-          </div>
-          <div className="image-card single-image-card">
+            <figcaption>恒温恒湿炉</figcaption>
+          </figure>
+          <figure className="image-card figure-card single-image-card">
             <Image src={assets.saltSpray} alt="德仪盐雾测试机" width={815} height={376} />
-          </div>
-          <div className="image-card single-image-card">
+            <figcaption>德仪盐雾测试机</figcaption>
+          </figure>
+          <figure className="image-card figure-card single-image-card">
             <Image src={assets.vibration} alt="模拟振动台" width={814} height={392} />
-          </div>
+            <figcaption>模拟振动台</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -75,15 +77,18 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
           </ul>
         </article>
         <div className="certificate-grid">
-          <div className="image-card certificate-card">
+          <figure className="image-card certificate-card figure-card">
             <Image src={assets.iso14001} alt="ISO14001:2004认证" width={389} height={532} />
-          </div>
-          <div className="image-card certificate-card">
+            <figcaption>ISO14001:2004认证</figcaption>
+          </figure>
+          <figure className="image-card certificate-card figure-card">
             <Image src={assets.iso9001} alt="ISO9001:2008认证" width={378} height={532} />
-          </div>
-          <div className="image-card certificate-card">
+            <figcaption>ISO9001:2008认证</figcaption>
+          </figure>
+          <figure className="image-card certificate-card figure-card">
             <Image src={assets.icti} alt="ICTI认证" width={363} height={531} />
-          </div>
+            <figcaption>ICTI认证</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -92,9 +97,10 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
           <h2>{copy.quality.recognitionTitle}</h2>
           <p>{copy.quality.recognitionBody}</p>
         </article>
-        <div className="image-card single-image-card">
+        <figure className="image-card figure-card single-image-card">
           <Image src={assets.awards2} alt="朗华客户认可奖项" width={716} height={480} />
-        </div>
+          <figcaption>客户认可奖项</figcaption>
+        </figure>
       </section>
     </main>
   );

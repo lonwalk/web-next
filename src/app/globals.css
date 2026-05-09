@@ -232,6 +232,29 @@ main {
   overflow: hidden;
 }
 
+.figure-card {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.figure-card img {
+  min-height: 0;
+}
+
+.figure-card figcaption {
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.wide-figure-card {
+  min-height: 440px;
+}
+
 .hero-copy,
 .large-copy,
 .compact-card,
@@ -292,6 +315,10 @@ label span {
   line-height: 1.7;
 }
 
+.content-card p {
+  white-space: pre-line;
+}
+
 .hero-intro {
   max-width: 64ch;
   margin-top: 14px;
@@ -346,15 +373,22 @@ label span {
 
 .diagram-card,
 .certificate-card {
-  display: grid;
-  place-items: center;
   padding: 18px;
   background: var(--surface-strong);
+}
+
+.diagram-card {
+  display: grid;
+  place-items: center;
 }
 
 .diagram-card img,
 .certificate-card img {
   object-fit: contain;
+}
+
+.certificate-card.figure-card {
+  padding-bottom: 0;
 }
 
 .flow-diagram-card {
@@ -593,6 +627,27 @@ label span {
 
 .compact-table-wrap table {
   min-width: 560px;
+}
+
+.subsection-title {
+  margin-top: 22px;
+}
+
+.module-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.module-chip {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(20, 22, 27, 0.03);
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.35;
 }
 
 table {

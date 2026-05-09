@@ -25,13 +25,11 @@ export default async function StrengthsPage({ params }: { params: Promise<{ lang
         ))}
       </section>
 
-      <section className="section shell two-image-strip">
-        <div className="image-card single-image-card">
-          <Image src={assets.assemblyWide} alt="自动化组装生产现场" width={1000} height={574} />
-        </div>
-        <div className="image-card single-image-card">
+      <section className="section shell single-image-section">
+        <figure className="image-card figure-card single-image-card wide-figure-card">
           <Image src={assets.solar} alt="光伏绿色制造" width={1672} height={941} />
-        </div>
+          <figcaption>光伏绿色制造</figcaption>
+        </figure>
       </section>
     </main>
   );
