@@ -47,8 +47,9 @@ export const assets = {
 
 const zhCopy = {
   htmlLang: 'zh-CN',
-  metaTitle: '朗华电子塑胶 | 电子塑胶益智玩具制造',
-  metaDescription: '中山市朗华电子塑胶有限公司，专注电子塑胶益智玩具产品，提供产品设计、模具、注塑、印刷、组装与品质管理的一体化制造服务。',
+  metaTitle: '中山市朗华电子塑胶有限公司 | 电子塑胶益智玩具制造',
+  metaDescription:
+    '中山市朗华电子塑胶有限公司位于广东中山，拥有自有厂房，是一家集产品设计、模具设计与制造、精密注塑、印刷及成品组装于一体的综合制造企业，专注高品质电子塑胶益智玩具产品制造。',
   companyName: '中山市朗华电子塑胶有限公司',
   companyNameEn: 'Zhongshan Lonwalk Electronic & Plastic Co., Ltd.',
   nav: [
@@ -301,9 +302,9 @@ const zhCopy = {
 const enCopy = {
   ...zhCopy,
   htmlLang: 'en',
-  metaTitle: 'Lonwalk Electronic & Plastic | Electronic Plastic Educational Toy Manufacturing',
+  metaTitle: '中山市朗华电子塑胶有限公司 | 电子塑胶益智玩具制造',
   metaDescription:
-    'Zhongshan Lonwalk Electronic & Plastic Co., Ltd. specializes in electronic plastic educational toys, providing integrated services from product design, tooling, injection molding, printing and assembly to quality management.',
+    '中山市朗华电子塑胶有限公司位于广东中山，拥有自有厂房，是一家集产品设计、模具设计与制造、精密注塑、印刷及成品组装于一体的综合制造企业，专注高品质电子塑胶益智玩具产品制造。',
   companyName: 'Zhongshan Lonwalk Electronic & Plastic Co., Ltd.',
   companyNameEn: 'Zhongshan Lonwalk Electronic & Plastic Co., Ltd.',
   nav: [
@@ -549,9 +550,9 @@ const enCopy = {
 const jaCopy = {
   ...zhCopy,
   htmlLang: 'ja',
-  metaTitle: '朗華電子プラスチック | 電子プラスチック知育玩具製造',
+  metaTitle: '中山市朗华电子塑胶有限公司 | 电子塑胶益智玩具制造',
   metaDescription:
-    '中山市朗華電子塑膠有限公司は、電子プラスチック知育玩具に特化し、製品設計、金型、射出成形、印刷、組立、品質管理まで一貫した製造サービスを提供しています。',
+    '中山市朗华电子塑胶有限公司位于广东中山，拥有自有厂房，是一家集产品设计、模具设计与制造、精密注塑、印刷及成品组装于一体的综合制造企业，专注高品质电子塑胶益智玩具产品制造。',
   companyName: '中山市朗華電子塑膠有限公司',
   companyNameEn: 'Zhongshan Lonwalk Electronic & Plastic Co., Ltd.',
   nav: [
