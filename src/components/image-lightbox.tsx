@@ -6,6 +6,7 @@ import Image from 'next/image';
 type LightboxImage = {
   src: string;
   alt: string;
+  unoptimized?: boolean;
 };
 
 function getOriginalSrc(img: HTMLImageElement) {
@@ -23,15 +24,32 @@ function getOriginalSrc(img: HTMLImageElement) {
   }
 }
 
+function getConfiguredLightboxSrc(img: HTMLImageElement) {
+  return img.dataset.lightboxSrc || img.closest<HTMLElement>('[data-lightbox-src]')?.dataset.lightboxSrc || null;
+}
+
+function getLightboxSrc(img: HTMLImageElement) {
+  const configuredSrc = getConfiguredLightboxSrc(img);
+
+  return configuredSrc || getOriginalSrc(img);
+}
+
 function getPageImages() {
   const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('main img'));
 
   return imgs
     .filter((img) => img.offsetParent !== null && Boolean(img.currentSrc || img.src))
     .map((img) => ({
-      src: getOriginalSrc(img),
+      src: getLightboxSrc(img),
       alt: img.alt || '',
+      unoptimized: Boolean(getConfiguredLightboxSrc(img)),
     }));
+}
+
+function getTargetImage(event: Event) {
+  const target = event.target instanceof Element ? event.target.closest('main img') : null;
+
+  return target instanceof HTMLImageElement ? target : null;
 }
 
 export function ImageLightbox() {
@@ -53,12 +71,12 @@ export function ImageLightbox() {
   }, [activeIndex, canNavigate, imageCount]);
 
   useEffect(() => {
-    const handleClick = (event: MouseEvent) => {
-      const target = event.target instanceof Element ? event.target.closest('main img') : null;
-      if (!(target instanceof HTMLImageElement)) return;
+    let pointerStart: { x: number; y: number; target: HTMLImageElement } | null = null;
+    let lastPointerOpen = 0;
 
+    const openImage = (target: HTMLImageElement, event: Event) => {
       const nextImages = getPageImages();
-      const src = getOriginalSrc(target);
+      const src = getLightboxSrc(target);
       const nextIndex = nextImages.findIndex((image) => image.src === src);
 
       if (nextIndex === -1) return;
@@ -68,8 +86,50 @@ export function ImageLightbox() {
       setActiveIndex(nextIndex);
     };
 
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!event.isPrimary || event.button !== 0) return;
+
+      const target = getTargetImage(event);
+      if (!target) return;
+
+      pointerStart = { x: event.clientX, y: event.clientY, target };
+    };
+
+    const handlePointerUp = (event: PointerEvent) => {
+      if (!event.isPrimary || !pointerStart) return;
+
+      const target = getTargetImage(event);
+      const moved = Math.hypot(event.clientX - pointerStart.x, event.clientY - pointerStart.y);
+      const isSameImage = target === pointerStart.target;
+      const startTarget = pointerStart.target;
+      pointerStart = null;
+
+      if (!isSameImage || moved > 12) return;
+
+      lastPointerOpen = Date.now();
+      openImage(startTarget, event);
+    };
+
+    const handleClick = (event: MouseEvent) => {
+      const target = getTargetImage(event);
+      if (!target) return;
+
+      if (Date.now() - lastPointerOpen < 700) {
+        event.preventDefault();
+        return;
+      }
+
+      openImage(target, event);
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('pointerup', handlePointerUp);
     document.addEventListener('click', handleClick);
-    return () => document.removeEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('pointerup', handlePointerUp);
+      document.removeEventListener('click', handleClick);
+    };
   }, []);
 
   useEffect(() => {
@@ -120,12 +180,18 @@ export function ImageLightbox() {
             setActiveIndex(controls.previous);
           }}
         >
-          ↑
+          ‹
         </button>
       ) : null}
       <figure className="lightbox-stage" onClick={(event) => event.stopPropagation()}>
         <span className="lightbox-media">
-          <Image src={activeImage.src} alt={activeImage.alt} fill sizes="100vw" unoptimized />
+          <Image
+            src={activeImage.src}
+            alt={activeImage.alt}
+            fill
+            sizes="(max-width: 720px) 100vw, 1120px"
+            unoptimized={activeImage.unoptimized}
+          />
         </span>
         <figcaption>
           <span>{activeImage.alt}</span>
@@ -144,7 +210,7 @@ export function ImageLightbox() {
             setActiveIndex(controls.next);
           }}
         >
-          ↓
+          ›
         </button>
       ) : null}
     </div>

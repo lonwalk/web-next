@@ -867,6 +867,7 @@ main img {
   padding: 24px 84px;
   background: rgba(8, 11, 18, 0.86);
   backdrop-filter: blur(18px);
+  touch-action: none;
 }
 
 .lightbox-stage {
@@ -1051,11 +1052,12 @@ main img {
   }
 
   .lightbox-overlay {
-    padding: 64px 14px 22px;
+    padding: 58px 12px 78px;
   }
 
   .lightbox-media {
-    height: calc(100vh - 156px);
+    height: calc(100vh - 180px);
+    border-radius: var(--radius-md);
   }
 
   .lightbox-stage figcaption {
@@ -1070,6 +1072,21 @@ main img {
   }
 
   .lightbox-nav {
-    right: 12px;
+    top: auto;
+    bottom: 18px;
+    width: 58px;
+    height: 48px;
+    border-color: rgba(255, 255, 255, 0.34);
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 1.9rem;
+  }
+
+  .lightbox-prev {
+    right: calc(50% + 8px);
+  }
+
+  .lightbox-next {
+    right: auto;
+    left: calc(50% + 8px);
   }
 }
