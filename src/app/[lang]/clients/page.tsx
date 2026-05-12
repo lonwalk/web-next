@@ -10,7 +10,6 @@ function productImage(src: string, width: number, height: number) {
     width,
     height,
     thumbSrc: `/assets/lonwalk-new/clients/product-thumbs/${fileName}.jpg`,
-    previewSrc: `/assets/lonwalk-new/clients/product-previews/${fileName}.jpg`,
   };
 }
 
@@ -30,6 +29,7 @@ const productShowcases = [
     images: [
       productImage('/assets/lonwalk-new/clients/产品/带镜片/lens1.png', 1448, 1086),
       productImage('/assets/lonwalk-new/clients/产品/带镜片/lens2.png', 1086, 1448),
+      productImage('/assets/lonwalk-new/clients/产品/带镜片/lens3.png', 1401, 1123),
     ],
   },
   {
@@ -42,22 +42,15 @@ const productShowcases = [
     ],
   },
   {
-    id: 'printing',
-    images: [
-      productImage('/assets/lonwalk-new/clients/产品/印刷细节/print1.png', 1166, 1349),
-      productImage('/assets/lonwalk-new/clients/产品/印刷细节/print2.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/印刷细节/print3.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/印刷细节/print4.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/印刷细节/print5.png', 1448, 1086),
-    ],
-  },
-  {
     id: 'comprehensive',
     images: [
+      productImage('/assets/lonwalk-new/clients/产品/more/print1.png', 1166, 1349),
+      productImage('/assets/lonwalk-new/clients/产品/more/print2.png', 1448, 1086),
+      productImage('/assets/lonwalk-new/clients/产品/more/print3.png', 1448, 1086),
+      productImage('/assets/lonwalk-new/clients/产品/more/print4.png', 1448, 1086),
       productImage('/assets/lonwalk-new/clients/产品/more/more1.png', 1448, 1086),
       productImage('/assets/lonwalk-new/clients/产品/more/more2.png', 1448, 1086),
       productImage('/assets/lonwalk-new/clients/产品/more/more3.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/more/more4.png', 1448, 1086),
       productImage('/assets/lonwalk-new/clients/产品/more/more5.png', 1254, 1254),
       productImage('/assets/lonwalk-new/clients/产品/more/more6.png', 1448, 1086),
       productImage('/assets/lonwalk-new/clients/产品/more/more7.png', 1086, 1448),
@@ -81,6 +74,10 @@ const productShowcases = [
     ],
   },
 ] as const;
+
+function splitIntoRows<T>(items: readonly T[], rowCount: number) {
+  return Array.from({ length: rowCount }, (_, rowIndex) => items.filter((_, index) => index % rowCount === rowIndex));
+}
 
 export default async function ClientsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -150,21 +147,51 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
             return (
               <section key={category.id} className="product-category-block" aria-labelledby={`product-${category.id}`}>
                 <h3 id={`product-${category.id}`}>{title}</h3>
-                <div className="product-gallery-grid">
-                  {category.images.map((image, index) => (
-                    <figure key={image.src} className="product-gallery-card">
-                      <Image
-                        src={image.thumbSrc}
-                        alt={`${title} ${index + 1}`}
-                        width={image.width}
-                        height={image.height}
-                        sizes="(max-width: 720px) 46vw, (max-width: 1200px) 22vw, 220px"
-                        data-lightbox-src={image.previewSrc}
-                        unoptimized
-                      />
-                    </figure>
-                  ))}
-                </div>
+                {category.id === 'comprehensive' ? (
+                  <div className="product-marquee-stack" aria-label={title}>
+                    {splitIntoRows(category.images, 3).map((rowImages, rowIndex) => {
+                      const marqueeImages = [...rowImages, ...rowImages];
+
+                      return (
+                        <div
+                          key={rowIndex}
+                          className={`product-marquee-row ${rowIndex === 1 ? 'is-reverse' : ''}`}
+                          style={{ '--marquee-duration': `${34 + rowIndex * 6}s` } as React.CSSProperties}
+                        >
+                          <div className="product-marquee-track">
+                            {marqueeImages.map((image, imageIndex) => (
+                              <figure key={`${image.src}-${imageIndex}`} className="product-gallery-card product-marquee-card" aria-hidden={imageIndex >= rowImages.length}>
+                                <Image
+                                  src={image.thumbSrc}
+                                  alt={`${title} ${(imageIndex % rowImages.length) + 1}`}
+                                  width={image.width}
+                                  height={image.height}
+                                  sizes="(max-width: 720px) 38vw, (max-width: 1200px) 18vw, 180px"
+                                  unoptimized
+                                />
+                              </figure>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="product-gallery-grid">
+                    {category.images.map((image, index) => (
+                      <figure key={image.src} className="product-gallery-card">
+                        <Image
+                          src={image.thumbSrc}
+                          alt={`${title} ${index + 1}`}
+                          width={image.width}
+                          height={image.height}
+                          sizes="(max-width: 720px) 46vw, (max-width: 1200px) 22vw, 220px"
+                          unoptimized
+                        />
+                      </figure>
+                    ))}
+                  </div>
+                )}
               </section>
             );
           })}
