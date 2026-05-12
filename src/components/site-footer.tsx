@@ -17,7 +17,7 @@ export function SiteFooter({ lang }: { lang: Lang }) {
           <p>{copy.common.phone}</p>
           <p>{copy.common.mobile}</p>
         </div>
-        <div>
+        <div className="footer-positioning">
           <p className="footer-label">{copy.labels.footerPositioning}</p>
           <p>{copy.footer.positioning}</p>
         </div>
