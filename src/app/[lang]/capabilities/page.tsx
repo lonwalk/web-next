@@ -2,6 +2,16 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { assets, isLang, Lang, t } from '@/data/site';
 
+const singleCapabilityImage = {
+  quality: 55,
+  sizes: '(max-width: 980px) calc(100vw - 24px), 560px',
+} as const;
+
+const gridCapabilityImage = {
+  quality: 55,
+  sizes: '(max-width: 720px) 46vw, (max-width: 980px) 46vw, 280px',
+} as const;
+
 export default async function CapabilitiesPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
@@ -24,7 +34,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.design} alt={copy.media.design} width={1774} height={887} priority />
+          <Image src={assets.design} alt={copy.media.design} width={1774} height={887} preload {...singleCapabilityImage} />
         </figure>
       </section>
 
@@ -46,7 +56,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </div>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.injection} alt={copy.media.injection} width={1060} height={534} />
+          <Image src={assets.injection} alt={copy.media.injection} width={1060} height={534} {...singleCapabilityImage} />
         </figure>
       </section>
 
@@ -60,8 +70,8 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <div className="image-card image-grid-card automation-image-grid">
-          <Image src={assets.automationDetail1} alt={copy.capabilities.automationTitle} width={1089} height={1444} />
-          <Image src={assets.automationDetail2} alt={copy.capabilities.automationTitle} width={944} height={718} />
+          <Image src={assets.automationDetail1} alt={copy.capabilities.automationTitle} width={1089} height={1444} {...gridCapabilityImage} />
+          <Image src={assets.automationDetail2} alt={copy.capabilities.automationTitle} width={944} height={718} {...gridCapabilityImage} />
         </div>
       </section>
 
@@ -76,7 +86,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.lineProduction} alt={copy.media.lineProduction} width={1767} height={890} />
+          <Image src={assets.lineProduction} alt={copy.media.lineProduction} width={1767} height={890} {...singleCapabilityImage} />
         </figure>
       </section>
 
@@ -98,10 +108,10 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </div>
         </article>
         <div className="image-card image-grid-card assembly-image-grid">
-          <Image src={assets.assembly1} alt={copy.media.assemblyLine} width={1086} height={1448} />
-          <Image src={assets.assembly2} alt={copy.media.assemblyLine} width={1086} height={1448} />
-          <Image src={assets.assembly3} alt={copy.media.assemblyLine} width={2048} height={1536} />
-          <Image src={assets.assembly4} alt={copy.media.assemblyLine} width={1086} height={1448} />
+          <Image src={assets.assembly1} alt={copy.media.assemblyLine} width={1086} height={1448} {...gridCapabilityImage} />
+          <Image src={assets.assembly2} alt={copy.media.assemblyLine} width={1086} height={1448} {...gridCapabilityImage} />
+          <Image src={assets.assembly3} alt={copy.media.assemblyLine} width={2048} height={1536} {...gridCapabilityImage} />
+          <Image src={assets.assembly4} alt={copy.media.assemblyLine} width={1086} height={1448} {...gridCapabilityImage} />
         </div>
       </section>
 
@@ -115,7 +125,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.uvPrinting} alt={copy.media.uvPrinting} width={1428} height={1102} />
+          <Image src={assets.uvPrinting} alt={copy.media.uvPrinting} width={1428} height={1102} {...singleCapabilityImage} />
         </figure>
       </section>
 
@@ -129,7 +139,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.cleanroom} alt={copy.media.cleanroom} width={2300} height={840} />
+          <Image src={assets.cleanroom} alt={copy.media.cleanroom} width={2300} height={840} {...singleCapabilityImage} />
         </figure>
       </section>
 
@@ -150,7 +160,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </div>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.erpSystem} alt={copy.media.erp} width={1731} height={909} />
+          <Image src={assets.erpSystem} alt={copy.media.erp} width={1731} height={909} {...singleCapabilityImage} />
         </figure>
       </section>
     </main>
