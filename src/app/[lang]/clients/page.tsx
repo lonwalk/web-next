@@ -2,14 +2,11 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { assets, isLang, Lang, t } from '@/data/site';
 
-function productImage(src: string, width: number, height: number) {
-  const fileName = src.split('/').pop()?.replace(/\.png$/, '') ?? '';
-
+function productImage(fileName: string, width: number, height: number) {
   return {
-    src,
+    src: `/assets/lonwalk-new/clients/product-thumbs/${fileName}.jpg`,
     width,
     height,
-    thumbSrc: `/assets/lonwalk-new/clients/product-thumbs/${fileName}.jpg`,
   };
 }
 
@@ -17,60 +14,60 @@ const productShowcases = [
   {
     id: 'electronic',
     images: [
-      productImage('/assets/lonwalk-new/clients/产品/带电子/elec1.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/带电子/elec2.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/带电子/elec3.png', 1296, 910),
-      productImage('/assets/lonwalk-new/clients/产品/带电子/elec4.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/带电子/elec5.png', 1398, 996),
+      productImage('elec1', 1448, 1086),
+      productImage('elec2', 1448, 1086),
+      productImage('elec3', 1296, 910),
+      productImage('elec4', 1448, 1086),
+      productImage('elec5', 1398, 996),
     ],
   },
   {
     id: 'optical',
     images: [
-      productImage('/assets/lonwalk-new/clients/产品/带镜片/lens1.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/带镜片/lens2.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/带镜片/lens3.png', 1401, 1123),
+      productImage('lens1', 1448, 1086),
+      productImage('lens2', 1086, 1448),
+      productImage('lens3', 1401, 1123),
     ],
   },
   {
     id: 'complex',
     images: [
-      productImage('/assets/lonwalk-new/clients/产品/高难度塑胶产品/hard1.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/高难度塑胶产品/hard2.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/高难度塑胶产品/hard3.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/高难度塑胶产品/hard4.png', 1448, 1086),
+      productImage('hard1', 1448, 1086),
+      productImage('hard2', 1448, 1086),
+      productImage('hard3', 1448, 1086),
+      productImage('hard4', 1448, 1086),
     ],
   },
   {
     id: 'comprehensive',
     images: [
-      productImage('/assets/lonwalk-new/clients/产品/more/print1.png', 1166, 1349),
-      productImage('/assets/lonwalk-new/clients/产品/more/print2.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/print3.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/print4.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more1.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more2.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more3.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/more/more5.png', 1254, 1254),
-      productImage('/assets/lonwalk-new/clients/产品/more/more6.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more7.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/more/more8.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more9.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more10.png', 1129, 1393),
-      productImage('/assets/lonwalk-new/clients/产品/more/more11.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/more/more12.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/more/more13.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more14.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/more/more15.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more16.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/more/more17.png', 1277, 1232),
-      productImage('/assets/lonwalk-new/clients/产品/more/more18.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more19.png', 1204, 1306),
-      productImage('/assets/lonwalk-new/clients/产品/more/more20.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more21.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more22.png', 1086, 1448),
-      productImage('/assets/lonwalk-new/clients/产品/more/more23.png', 1448, 1086),
-      productImage('/assets/lonwalk-new/clients/产品/more/more24.png', 1086, 1448),
+      productImage('print1', 1166, 1349),
+      productImage('print2', 1448, 1086),
+      productImage('print3', 1448, 1086),
+      productImage('print4', 1448, 1086),
+      productImage('more1', 1448, 1086),
+      productImage('more2', 1448, 1086),
+      productImage('more3', 1086, 1448),
+      productImage('more5', 1254, 1254),
+      productImage('more6', 1448, 1086),
+      productImage('more7', 1086, 1448),
+      productImage('more8', 1448, 1086),
+      productImage('more9', 1448, 1086),
+      productImage('more10', 1129, 1393),
+      productImage('more11', 1086, 1448),
+      productImage('more12', 1086, 1448),
+      productImage('more13', 1448, 1086),
+      productImage('more14', 1086, 1448),
+      productImage('more15', 1448, 1086),
+      productImage('more16', 1086, 1448),
+      productImage('more17', 1277, 1232),
+      productImage('more18', 1448, 1086),
+      productImage('more19', 1204, 1306),
+      productImage('more20', 1448, 1086),
+      productImage('more21', 1448, 1086),
+      productImage('more22', 1086, 1448),
+      productImage('more23', 1448, 1086),
+      productImage('more24', 1086, 1448),
     ],
   },
 ] as const;
@@ -162,7 +159,7 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
                             {marqueeImages.map((image, imageIndex) => (
                               <figure key={`${image.src}-${imageIndex}`} className="product-gallery-card product-marquee-card" aria-hidden={imageIndex >= rowImages.length}>
                                 <Image
-                                  src={image.thumbSrc}
+                                  src={image.src}
                                   alt={`${title} ${(imageIndex % rowImages.length) + 1}`}
                                   width={image.width}
                                   height={image.height}
@@ -181,7 +178,7 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
                     {category.images.map((image, index) => (
                       <figure key={image.src} className="product-gallery-card">
                         <Image
-                          src={image.thumbSrc}
+                          src={image.src}
                           alt={`${title} ${index + 1}`}
                           width={image.width}
                           height={image.height}
