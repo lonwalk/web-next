@@ -45,23 +45,23 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
         </article>
         <div className="media-grid">
           <figure className="image-card figure-card single-image-card">
-            <Image src={assets.twoDimensional} alt={copy.media.twoDimensional} width={831} height={543} />
+            <Image src={assets.twoDimensional} alt={copy.media.twoDimensional} width={1000} height={733} />
             <figcaption>{copy.media.twoDimensional}</figcaption>
           </figure>
           <figure className="image-card figure-card single-image-card">
-            <Image src={assets.rohsSea1000s} alt={copy.media.rohsSea1000s} width={830} height={544} />
+            <Image src={assets.rohsSea1000s} alt={copy.media.rohsSea1000s} width={1000} height={655} />
             <figcaption>{copy.media.rohsSea1000s}</figcaption>
           </figure>
           <figure className="image-card figure-card single-image-card">
-            <Image src={assets.temperatureHumidity} alt={copy.media.temperatureHumidity} width={689} height={789} />
+            <Image src={assets.temperatureHumidity} alt={copy.media.temperatureHumidity} width={873} height={1000} />
             <figcaption>{copy.media.temperatureHumidity}</figcaption>
           </figure>
           <figure className="image-card figure-card single-image-card">
-            <Image src={assets.saltSpray} alt={copy.media.saltSpray} width={815} height={376} />
+            <Image src={assets.saltSpray} alt={copy.media.saltSpray} width={1000} height={686} />
             <figcaption>{copy.media.saltSpray}</figcaption>
           </figure>
           <figure className="image-card figure-card single-image-card">
-            <Image src={assets.vibration} alt={copy.media.vibration} width={814} height={392} />
+            <Image src={assets.vibration} alt={copy.media.vibration} width={1000} height={728} />
             <figcaption>{copy.media.vibration}</figcaption>
           </figure>
         </div>
@@ -98,10 +98,10 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
           <p>{copy.quality.recognitionBody}</p>
         </article>
         <div className="image-card award-image-card">
-          <Image src={assets.customerRecognition1} alt={copy.media.awards} width={1448} height={1086} />
+          <Image src={assets.customerRecognition1} alt={copy.media.awards} width={1544} height={842} />
         </div>
         <div className="image-card award-image-card">
-          <Image src={assets.customerRecognition2} alt={copy.media.awards} width={1276} height={976} />
+          <Image src={assets.customerRecognition2} alt={copy.media.awards} width={1208} height={654} />
         </div>
       </section>
     </main>

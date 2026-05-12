@@ -31,7 +31,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
           </div>
         </article>
         <div className="image-card single-image-card contact-campus-card">
-          <Image src={assets.campus} alt={copy.media.campus} width={2726} height={1158} />
+          <Image src={assets.campus} alt={copy.media.campus} width={2200} height={934} />
         </div>
       </section>
     </main>

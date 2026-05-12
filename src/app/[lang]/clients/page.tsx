@@ -126,10 +126,10 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
           <p>{copy.clients.awardLead}</p>
         </article>
         <div className="image-card award-image-card">
-          <Image src={assets.customerRecognition1} alt={copy.media.clientAwards} width={1448} height={1086} />
+          <Image src={assets.customerRecognition1} alt={copy.media.clientAwards} width={1544} height={842} />
         </div>
         <div className="image-card award-image-card">
-          <Image src={assets.customerRecognition2} alt={copy.media.clientAwards} width={1276} height={976} />
+          <Image src={assets.customerRecognition2} alt={copy.media.clientAwards} width={1208} height={654} />
         </div>
       </section>
 
