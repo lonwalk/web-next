@@ -12,6 +12,7 @@ export const assets = {
   logo: '/assets/lonwalk-new/shared/logo-transparent.png',
   campus: '/assets/lonwalk-new/about/campus.png',
   injection: '/assets/lonwalk-new/capabilities/injection.png',
+  design: '/assets/lonwalk-new/capabilities/design.png',
   assembly: '/assets/lonwalk-new/capabilities/assembly-line-new.png',
   automationDetail1: '/assets/lonwalk-new/capabilities/automation-detail-1.png',
   automationDetail2: '/assets/lonwalk-new/capabilities/automation-detail-2.png',
@@ -41,7 +42,7 @@ export const assets = {
   clientFunai: '/assets/lonwalk-new/clients/client-funai.png',
   clientCasio: '/assets/lonwalk-new/clients/client-casio.png',
   clientCanon: '/assets/lonwalk-new/clients/client-canon.png',
-  clientNamtai: '/assets/lonwalk-new/clients/client-namtai.jpg',
+  clientNamtai: '/assets/lonwalk-new/clients/client-namtai.png',
 } as const;
 
 const zhCopy = {
@@ -52,7 +53,7 @@ const zhCopy = {
   companyNameEn: 'Zhongshan Lonwalk Electronic & Plastic Co., Ltd.',
   nav: [
     { href: '/about', label: '关于朗华' },
-    { href: '/clients', label: '客户与服务' },
+    { href: '/clients', label: '客户与产品' },
     { href: '/capabilities', label: '生产能力' },
     { href: '/quality', label: '品质保证' },
     { href: '/strengths', label: '朗华优势' },
@@ -92,7 +93,7 @@ const zhCopy = {
   },
   media: {
     campus: '朗华厂区',
-    designPlaceholder: '产品设计与生产导入图片待补充',
+    design: '产品设计能力',
     injection: '注塑成型设备',
     lineProduction: '连线生产',
     assemblyLine: '装配流水线',
@@ -147,7 +148,7 @@ const zhCopy = {
     positioningBody: '朗华专注打造高品质电子塑胶益智玩具产品。\n以专业技术、可靠品质、优质服务，携手客户共赢成长。',
   },
   clients: {
-    title: '客户与服务',
+    title: '客户与产品',
     subtitle: '深耕塑胶制造领域，朗华在电子产品与教育产品领域均具备成熟的客户合作经验。',
     lead: '深耕塑胶制造领域，曾服务Canon、Casio、Samsung等全球一流企业，产品覆盖时尚数码、电子通讯、智能办公、益智教育等领域。2012年公司战略转型，专注益智玩具完成品研发制造，成为日本倍乐生、中福会巧虎系列的核心供应商，联合开发近百款电子塑胶益智玩具，拥有成熟的研发与生产实力，全力满足并持续超越客户的品质要求与合作期望。',
     pastTitle: '过往知名客户',
@@ -165,7 +166,15 @@ const zhCopy = {
       { name: 'ArTec', asset: 'clientArtec' },
     ],
     awardTitle: '客户认可',
-    awardLead: '客户的认可，是对我们品质最好的见证。也是前行最好的动力。\n不忘初心、坚守品质，用心服务每一位客户。',
+    awardLead: '客户的认可，是对我们品质最好的见证，也是前行最好的动力。\n不忘初心、坚守品质，用心服务朗华的每一位客户。',
+    productShowcaseTitle: '产品展示',
+    productCategories: {
+      electronic: '电子发光类产品',
+      optical: '光学镜片类产品',
+      complex: '复杂结构类产品',
+      printing: '精密印刷类产品',
+      comprehensive: '综合产品展示',
+    },
     serviceTitle: '一站式服务模式',
     serviceLead: '公司为客户提供从产品开发到量产交付的一站式服务，覆盖完整制造链条。',
     serviceFlow: ['产品概念导入与需求分析', '结构设计与3D建模', '手板制作与样品验证', '模具设计与外协制造', '注塑成型生产', '成型后处理', '印刷与表面加工', '电子模组配套（外协）', '成品组装', '包装与出货'],
@@ -254,7 +263,7 @@ const zhCopy = {
     certTitle: '质量认证',
     certs: ['2004年7月7日获得ISO14001:2004认证', '2009年7月4日获得ISO9001:2008认证', '2014年3月获得ICTI认证'],
     recognitionTitle: '客户认可',
-    recognitionBody: '客户的认可，是对我们品质最好的见证。也是前行最好的动力。\n不忘初心、坚守品质，用心服务每一位客户。',
+    recognitionBody: '客户的认可，是对我们品质最好的见证，也是前行最好的动力。\n不忘初心、坚守品质，用心服务朗华的每一位客户。',
   },
   strengths: {
     title: '朗华优势',
@@ -300,7 +309,7 @@ const enCopy = {
   companyNameEn: 'Zhongshan Lonwalk Electronic & Plastic Co., Ltd.',
   nav: [
     { href: '/about', label: 'About' },
-    { href: '/clients', label: 'Clients & Services' },
+    { href: '/clients', label: 'Clients & Products' },
     { href: '/capabilities', label: 'Capabilities' },
     { href: '/quality', label: 'Quality' },
     { href: '/strengths', label: 'Strengths' },
@@ -340,7 +349,7 @@ const enCopy = {
   },
   media: {
     campus: 'Lonwalk Campus',
-    designPlaceholder: 'Product design and production introduction image pending',
+    design: 'Product Design Capability',
     injection: 'Injection Molding Equipment',
     lineProduction: 'Connected Production Line',
     assemblyLine: 'Assembly Line',
@@ -398,8 +407,8 @@ const enCopy = {
       'Lonwalk focuses on high-quality electronic plastic educational toy products, partnering with customers for shared growth through professional technology, reliable quality and excellent service while building long-term relationships.',
   },
   clients: {
-    title: 'Clients & Services',
-    subtitle: 'With deep experience in plastic manufacturing, Lonwalk has mature cooperation experience in both electronics and educational products.',
+    title: 'Clients & Products',
+    subtitle: 'Lonwalk brings together long-term customer partnerships and a broad finished-product portfolio across electronics, optics, complex structures and precision printing.',
     lead:
       'Lonwalk has served leading global companies including Canon, Casio and Samsung, with products spanning digital devices, electronic communications, smart office products and educational toys. Since its 2012 strategic transformation, Lonwalk has focused on finished educational toy R&D and manufacturing, becoming a core supplier for Benesse Japan and the Qiaohu product system. The company has co-developed nearly 100 electronic plastic educational toy products and continues to meet and exceed customer expectations for quality and partnership.',
     pastTitle: 'Past Well-Known Clients',
@@ -418,6 +427,14 @@ const enCopy = {
     ],
     awardTitle: 'Customer Recognition',
     awardLead: 'Long-term recognition from customers reflects Lonwalk’s quality and service capabilities.',
+    productShowcaseTitle: 'Product Showcase',
+    productCategories: {
+      electronic: 'Electronic and Light-Up Products',
+      optical: 'Optical Lens Products',
+      complex: 'Complex Structural Products',
+      printing: 'Precision Printed Products',
+      comprehensive: 'Comprehensive Product Showcase',
+    },
     serviceTitle: 'One-Stop Service Model',
     serviceLead: 'Lonwalk provides one-stop service from product development to mass-production delivery, covering the complete manufacturing chain.',
     serviceFlow: ['Concept introduction and requirement analysis', 'Structural design and 3D modeling', 'Prototype making and sample validation', 'Mold design and outsourced tooling', 'Injection molding production', 'Post-molding processing', 'Printing and surface processing', 'Electronic module support (outsourced)', 'Finished-product assembly', 'Packaging and shipment'],
@@ -541,7 +558,7 @@ const jaCopy = {
   companyNameEn: 'Zhongshan Lonwalk Electronic & Plastic Co., Ltd.',
   nav: [
     { href: '/about', label: '朗華について' },
-    { href: '/clients', label: '顧客・サービス' },
+    { href: '/clients', label: '顧客・製品' },
     { href: '/capabilities', label: '生産能力' },
     { href: '/quality', label: '品質保証' },
     { href: '/strengths', label: '朗華の強み' },
@@ -581,7 +598,7 @@ const jaCopy = {
   },
   media: {
     campus: '朗華工場',
-    designPlaceholder: '製品設計・生産導入画像は準備中',
+    design: '製品設計能力',
     injection: '射出成形設備',
     lineProduction: '連動生産ライン',
     assemblyLine: '組立ライン',
@@ -639,8 +656,8 @@ const jaCopy = {
       '朗華は高品質な電子プラスチック知育玩具づくりに注力し、専門技術、信頼できる品質、優れたサービスにより、お客様と共に成長し、長期的なパートナーシップを築いています。',
   },
   clients: {
-    title: '顧客・サービス',
-    subtitle: 'プラスチック製造分野で培った経験により、朗華は電子製品と教育製品の両分野で成熟した協業実績を有しています。',
+    title: '顧客・製品',
+    subtitle: '朗華は長期的な顧客協力実績と、電子、光学、複雑構造、精密印刷にわたる完成品ポートフォリオを備えています。',
     lead:
       '朗華はCanon、Casio、Samsungなど世界的企業にサービスを提供し、デジタル機器、電子通信、スマートオフィス、知育教育分野の製品を手掛けてきました。2012年の戦略転換以降、知育玩具完成品の研究開発と製造に注力し、日本ベネッセおよびしまじろう関連製品体系の主要サプライヤーとなりました。約100種類の電子プラスチック知育玩具を共同開発し、品質と協力への期待に応え続けています。',
     pastTitle: '過去の主要顧客',
@@ -659,6 +676,14 @@ const jaCopy = {
     ],
     awardTitle: '顧客からの評価',
     awardLead: '長期協力顧客からの継続的な評価は、朗華の品質とサービス能力を示しています。',
+    productShowcaseTitle: '製品展示',
+    productCategories: {
+      electronic: '電子・発光製品',
+      optical: '光学レンズ製品',
+      complex: '複雑構造製品',
+      printing: '精密印刷製品',
+      comprehensive: '総合製品展示',
+    },
     serviceTitle: 'ワンストップサービスモデル',
     serviceLead: '朗華は製品開発から量産納入まで、製造チェーン全体をカバーするワンストップサービスを提供します。',
     serviceFlow: ['製品コンセプト導入と要求分析', '構造設計と3Dモデリング', '試作とサンプル検証', '金型設計と外部金型製作', '射出成形生産', '成形後加工', '印刷と表面加工', '電子モジュール対応（外部委託）', '完成品組立', '包装・出荷'],

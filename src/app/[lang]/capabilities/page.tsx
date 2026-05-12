@@ -23,9 +23,9 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
             ))}
           </ul>
         </article>
-        <div className="image-card placeholder-card single-image-card">
-          <span>{copy.media.designPlaceholder}</span>
-        </div>
+        <figure className="image-card figure-card single-image-card">
+          <Image src={assets.design} alt={copy.media.design} width={1774} height={887} priority />
+        </figure>
       </section>
 
       <section className="section shell text-media-grid">
