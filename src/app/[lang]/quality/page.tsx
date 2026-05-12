@@ -100,10 +100,10 @@ export default async function QualityPage({ params }: { params: Promise<{ lang: 
           <p>{copy.quality.recognitionBody}</p>
         </article>
         <div className="image-card award-image-card">
-          <Image src={assets.awards1} alt={copy.media.awards} width={741} height={480} />
+          <Image src={assets.customerRecognition1} alt={copy.media.awards} width={1448} height={1086} />
         </div>
         <div className="image-card award-image-card">
-          <Image src={assets.awards3} alt={copy.media.awards} width={690} height={462} />
+          <Image src={assets.customerRecognition2} alt={copy.media.awards} width={1276} height={976} />
         </div>
       </section>
     </main>

@@ -47,7 +47,6 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
         </article>
         <figure className="image-card figure-card single-image-card">
           <Image src={assets.injection} alt={copy.media.injection} width={1060} height={534} />
-          <figcaption>{copy.media.injection}</figcaption>
         </figure>
       </section>
 
@@ -60,8 +59,9 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
             ))}
           </ul>
         </article>
-        <div className="image-card placeholder-card single-image-card">
-          <span>{copy.media.automationPlaceholder}</span>
+        <div className="image-card image-grid-card automation-image-grid">
+          <Image src={assets.automationDetail1} alt={copy.capabilities.automationTitle} width={1089} height={1444} />
+          <Image src={assets.automationDetail2} alt={copy.capabilities.automationTitle} width={944} height={718} />
         </div>
       </section>
 
@@ -77,7 +77,6 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
         </article>
         <figure className="image-card figure-card single-image-card">
           <Image src={assets.lineProduction} alt={copy.media.lineProduction} width={1767} height={890} />
-          <figcaption>{copy.media.lineProduction}</figcaption>
         </figure>
       </section>
 
@@ -98,10 +97,12 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
             </table>
           </div>
         </article>
-        <figure className="image-card figure-card single-image-card">
-          <Image src={assets.assembly} alt={copy.media.assemblyLine} width={1000} height={551} />
-          <figcaption>{copy.media.assemblyLine}</figcaption>
-        </figure>
+        <div className="image-card image-grid-card assembly-image-grid">
+          <Image src={assets.assembly1} alt={copy.media.assemblyLine} width={1086} height={1448} />
+          <Image src={assets.assembly2} alt={copy.media.assemblyLine} width={1086} height={1448} />
+          <Image src={assets.assembly3} alt={copy.media.assemblyLine} width={2048} height={1536} />
+          <Image src={assets.assembly4} alt={copy.media.assemblyLine} width={1086} height={1448} />
+        </div>
       </section>
 
       <section className="section shell text-media-grid">
@@ -114,8 +115,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </ul>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.uvPrinting} alt={copy.media.uvPrinting} width={1070} height={669} />
-          <figcaption>{copy.media.uvPrinting}</figcaption>
+          <Image src={assets.uvPrinting} alt={copy.media.uvPrinting} width={1428} height={1102} />
         </figure>
       </section>
 
@@ -130,7 +130,6 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
         </article>
         <figure className="image-card figure-card single-image-card">
           <Image src={assets.cleanroom} alt={copy.media.cleanroom} width={2300} height={840} />
-          <figcaption>{copy.media.cleanroom}</figcaption>
         </figure>
       </section>
 
@@ -151,8 +150,7 @@ export default async function CapabilitiesPage({ params }: { params: Promise<{ l
           </div>
         </article>
         <figure className="image-card figure-card single-image-card">
-          <Image src={assets.erpSystem} alt={copy.media.erp} width={1600} height={1923} />
-          <figcaption>{copy.media.erp}</figcaption>
+          <Image src={assets.erpSystem} alt={copy.media.erp} width={1731} height={909} />
         </figure>
       </section>
     </main>

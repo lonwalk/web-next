@@ -27,7 +27,6 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
             {copy.clients.currentClients.map((client) => (
               <article key={client.name} className="client-logo-card">
                 <Image src={assets[client.asset]} alt={client.name} width={620} height={420} />
-                <p>{client.name}</p>
               </article>
             ))}
           </div>
@@ -41,7 +40,6 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
             {copy.clients.pastClients.map((client) => (
               <article key={client.name} className="client-logo-card">
                 <Image src={assets[client.asset]} alt={client.name} width={420} height={180} />
-                <p>{client.name}</p>
               </article>
             ))}
           </div>
@@ -54,20 +52,10 @@ export default async function ClientsPage({ params }: { params: Promise<{ lang: 
           <p>{copy.clients.awardLead}</p>
         </article>
         <div className="image-card award-image-card">
-          <Image src={assets.awards1} alt={copy.media.clientAwards} width={741} height={480} />
+          <Image src={assets.customerRecognition1} alt={copy.media.clientAwards} width={1448} height={1086} />
         </div>
         <div className="image-card award-image-card">
-          <Image src={assets.awards3} alt={copy.media.clientAwards} width={690} height={462} />
-        </div>
-      </section>
-
-      <section className="section shell single-image-section">
-        <article className="content-card compact-card">
-          <h2>{copy.clients.processTitle}</h2>
-          <p>{copy.clients.processLead}</p>
-        </article>
-        <div className="flow-diagram-card">
-          <Image src={assets.processFlow} alt={copy.media.processFlow} width={1592} height={896} />
+          <Image src={assets.customerRecognition2} alt={copy.media.clientAwards} width={1276} height={976} />
         </div>
       </section>
     </main>
