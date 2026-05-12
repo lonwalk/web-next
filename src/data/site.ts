@@ -295,7 +295,7 @@ const zhCopy = {
   footer: {
     company: '公司信息',
     contact: '联系信息',
-    positioning: '专注打造高品质电子塑胶益智玩具产品，提供从产品开发到量产交付的一体化制造服务。',
+    positioning: '朗华专注打造高品质电子塑胶益智玩具产品。\n以专业技术、可靠品质、优质服务，携手客户共赢成长。',
   },
 } as const;
 
@@ -544,7 +544,7 @@ const enCopy = {
   footer: {
     company: 'Company',
     contact: 'Contact',
-    positioning: 'Focused on high-quality electronic plastic educational toys, providing integrated services from product development to mass-production delivery.',
+    positioning: 'Lonwalk is dedicated to creating high-quality electronic plastic educational toy products.\nWith professional technology, reliable quality and excellent service, we work with customers for shared growth.',
   },
 } as const;
 
@@ -793,7 +793,7 @@ const jaCopy = {
   footer: {
     company: '会社情報',
     contact: '連絡先',
-    positioning: '高品質な電子プラスチック知育玩具づくりに注力し、製品開発から量産納入まで一貫したサービスを提供します。',
+    positioning: '朗華は高品質な電子プラスチック知育玩具製品づくりに注力しています。\n専門技術、信頼できる品質、優れたサービスにより、お客様と共に成長します。',
   },
 } as const;
 

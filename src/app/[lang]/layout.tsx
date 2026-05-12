@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { isLang, Lang, t } from '@/data/site';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
+import { ImageLightbox } from '@/components/image-lightbox';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -35,6 +36,7 @@ export default async function LangLayout({ children, params }: Readonly<{ childr
       <SiteHeader lang={lang as Lang} />
       {children}
       <SiteFooter lang={lang as Lang} />
+      <ImageLightbox />
       </body>
     </html>
   );
